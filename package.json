@@ -4,6 +4,7 @@
   "description": "User interface served by a raspberry pi to control an arduino to control an LED strip in my office",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/maximusunc/LED-controller#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "serialport": "^9.0.7"
   }
 }

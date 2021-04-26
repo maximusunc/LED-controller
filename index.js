@@ -1,16 +1,15 @@
-const SerialPort = require('serialport');
-const port  = new SerialPort('/dev/ttyACM0', { baudRate: 9600 });
+const path = require('path');
+const express = require('express');
+const api = require('./api');
+const app = express();
+const port = 3000;
 
-function send_data() {
-  const secs = Math.random() * 10 * 1000;
-  setTimeout(() => {
-    const pixelNum = Math.floor(Math.random() * 50);
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
-    port.write(`<${pixelNum};${r},${g},${b}>`);
-    send_data();
-  }, secs);
-}
+app.use('/api', api);
 
-send_data();
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'view/index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Running on port: ${port}`);
+});

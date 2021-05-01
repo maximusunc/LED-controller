@@ -4,6 +4,9 @@ const api = require('./api');
 const app = express();
 const port = 3000;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static('view'));
 app.use('/api', api);
 
 app.get('/', (req, res) => {

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "concurrently \"npm:dev\" \"npm:server\"",
+    "start-prod": "sirv public --no-clear",
     "validate": "svelte-check",
     "server": "node index.js"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/maximusunc/LED-controller#readme",
   "dependencies": {
+    "concurrently": "^6.2.0",
     "express": "^4.17.1",
     "serialport": "^9.0.7",
     "sirv-cli": "^1.0.0",

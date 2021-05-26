@@ -51,7 +51,7 @@ void recvChars() {
 
 void showNewData() {
     if (newData == true) {
-        char * colors = strtok(receivedChars, ";");
+        char * colors = strtok(receivedChars, ",");
         int r = atoi(colors);
         colors = strtok(NULL, ",");
         int g = atoi(colors);

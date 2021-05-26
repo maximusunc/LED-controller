@@ -9,14 +9,13 @@
 		popup: false,
 		alpha: false,
 		editorFormat: 'rgb',
-		onChange: (color) => {
-			console.log(color);
+		onDone: (color) => {
 			const [r, g, b] = color.rgba;
 			const data = {
 				r,
 				g,
 				b,
-			}
+			};
 			fetch('/api/change', {
 				method: 'POST',
 				headers: {
@@ -25,7 +24,7 @@
 				body: JSON.stringify(data), 
 			})
 				.then((res) => {
-					console.log(res.status);
+					// console.log(res.status);
 				})
 				.catch((err) => {
 					console.log(err);

@@ -1,5 +1,4 @@
 <script lang="ts">
-	export let name: string;
 	import Picker from 'vanilla-picker';
 
 	let el;
@@ -34,8 +33,6 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	<div bind:this={el} />
 </main>
 
@@ -49,13 +46,6 @@
 
 	div {
 		width: 200px;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
 	}
 
 	@media (min-width: 640px) {

@@ -52,14 +52,14 @@ void recvChars() {
 void showNewData() {
     if (newData == true) {
         char * colors = strtok(receivedChars, ";");
-        int pixelNum = atoi(colors);
-        colors = strtok(NULL, ",");
         int r = atoi(colors);
         colors = strtok(NULL, ",");
         int g = atoi(colors);
         colors = strtok(NULL, ",");
         int b = atoi(colors);
-        strip.setPixelColor(pixelNum, strip.Color(r, g, b));
+        for (int i = 0; i < strip.numPixels(); i++) {
+            strip.setPixelColor(i, strip.Color(r, g, b));
+        }
         strip.show();
         newData = false;
     }
